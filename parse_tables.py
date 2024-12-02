@@ -17,7 +17,7 @@ for l3_idx in l3_name_index:
                    df.iloc[l1_idx]["一级行业代码"], df.iloc[l1_idx]["一级行业名称"],))
 
 table1_df = pd.DataFrame(table1, columns=["l3_code", "l3_name", "l2_code", "l2_name", "l1_code", "l1_name"])
-table1_df.to_csv("swcls_2007.csv")
+table1_df.to_csv("swcls_2007.csv", index=False)
 
 ## parse table 2011 ##
 df = pd.read_csv("tables/2011.csv", dtype=str)
@@ -36,7 +36,7 @@ for l3_idx in l3_name_index:
                    df.iloc[l1_idx]["一级行业代码"], df.iloc[l1_idx]["一级行业名称"],))
 
 table2_df = pd.DataFrame(table2, columns=["l3_code", "l3_name", "l2_code", "l2_name", "l1_code", "l1_name"])
-table2_df.to_csv("swcls_2011.csv")
+table2_df.to_csv("swcls_2011.csv", index=False)
 
 ## parse table 2014 and 2021 ##
 df = pd.read_excel(
@@ -61,7 +61,7 @@ for old_l3_idx in old_l3_name_index:
                    df.iloc[old_l1_idx]["行业代码"], df.iloc[old_l1_idx]["旧版一级行业"],))
 
 table3_df = pd.DataFrame(table3, columns=["l3_code", "l3_name", "l2_code", "l2_name", "l1_code", "l1_name"])
-table3_df.to_csv("swcls_2014.csv")
+table3_df.to_csv("swcls_2014.csv", index=False)
 
 new_l1_name_index = df[df["新版一级行业"].notna()].index
 new_l2_name_index = df[df["新版二级行业"].notna()].index
@@ -78,4 +78,4 @@ for new_l3_idx in new_l3_name_index:
                    df.iloc[new_l1_idx]["行业代码.1"], df.iloc[new_l1_idx]["新版一级行业"],))
 
 table4_df = pd.DataFrame(table4, columns=["l3_code", "l3_name", "l2_code", "l2_name", "l1_code", "l1_name"])
-table4_df.to_csv("swcls_2021.csv")
+table4_df.to_csv("swcls_2021.csv", index=False)
